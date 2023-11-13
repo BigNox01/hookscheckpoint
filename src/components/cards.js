@@ -12,7 +12,7 @@ function MovieCards({movieData}) {
   return (
     <div className='movieCard'>
      {movieData.map((card)=>(
-            <Card style={{ width: '18rem' }}>
+            <Card  key={card.id} style={{ width: '18rem' }}>
             <Card.Img variant="top" src={card.poster} />
             <Card.Body>
               <Card.Title> {card.title} </Card.Title>
@@ -26,12 +26,17 @@ function MovieCards({movieData}) {
             <Button variant="primary" onClick={()=>openModal(card)}>See Description</Button>
           </Card>
      ))}
-     {/* render the movie modal component with the selected movie detail*/}
+            
+                 {/* render the movie modal component with the selected movie detail*/}
      {
-      selectedMovie && (<MoviePopUp
+      selectedMovie && (<MoviePopUp 
+      key={selectedMovie? selectedMovie.id:null}
       show={selectedMovie!==null}
       onHide={()=>setSelectedMovie(null)}
-      movie={selectedMovie}/>)}
+      movie={selectedMovie}
+      /*added the trailer prop to handle the links */
+      trailer={selectedMovie.link}/>
+      )}
     </div>
   );
 }
