@@ -11,7 +11,7 @@ function MovieCards({movieData}) {
   }
   return (
     <div className='movieCard'>
-     {movieData.map((card)=>(
+     {movieData.map((card)=>( 
             <Card  key={card.id} style={{ width: '18rem' }}>
             <Card.Img variant="top" src={card.poster} />
             <Card.Body>

@@ -9,7 +9,7 @@ function MoviePopUp({ show, onHide, movie,trailer }) {
     setShowPlayer(true);
   };
   return (
-    // the previous error was an extra model tag was blocking the entirety of the code
+    // the previous error was an extra model tag  blocking the entirety of the code
     <div
       className="modal show"
       style={{ display: "flex", alignItems: "center" }}
@@ -25,7 +25,7 @@ function MoviePopUp({ show, onHide, movie,trailer }) {
         </Modal.Header>
         <Modal.Body>
           <p>{movie.description}</p>
-          {showPlayer && <YoutubePlayer youtubelink={trailer} />}
+          {showPlayer && <YoutubePlayer trailer={trailer} />}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={onHide}>
@@ -33,7 +33,7 @@ function MoviePopUp({ show, onHide, movie,trailer }) {
           </Button>
           <Button variant="primary" on onClick={openPlayer}>
             see trailer
-          </Button>{" "}
+          </Button>
         </Modal.Footer>
       </Modal.Dialog>
     </div>
